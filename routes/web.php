@@ -24,7 +24,6 @@ Route::put('/user/{id}', [ManagementUserController::class, 'update']);
 // Route untuk menghapus data user
 Route::delete('/user/{id}', [ManagementUserController::class, 'destroy']);
 
-
-
-
-
+Route::get("/home",function(){
+    return view("home");
+});
