@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManagementUserController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\DashboardController;
 
 // Route untuk mengambil semua user
 Route::get('/user', [ManagementUserController::class, 'index']);
@@ -41,4 +42,8 @@ Route::group(['namespace'=>'Frontend'], function()
 // solusi 2
 Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
     Route::resource('home', 'HomeController');
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\Backend'], function () {
+    Route::resource('dashboard', 'DashboardController');
 });
