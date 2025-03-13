@@ -2,6 +2,7 @@
 //acara 5
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManagementUserController;
+use App\Http\Controllers\Frontend\HomeController;
 
 // Route untuk mengambil semua user
 Route::get('/user', [ManagementUserController::class, 'index']);
@@ -28,6 +29,16 @@ Route::get("/home",function(){
     return view("home");
 });
 
-Route::get("/acara7", function(){
-    return view("frontend/layout/home");
+//hanya untuk laravel 8 kebawah
+Route::group(['namespace'=>'Frontend'], function()
+{
+    Route::resource('home','HomeController');
+});
+
+//solusi 1
+// Route::resource('home', HomeController::class);
+
+// solusi 2
+Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
+    Route::resource('home', 'HomeController');
 });
