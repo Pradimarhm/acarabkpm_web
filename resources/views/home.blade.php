@@ -1,5 +1,24 @@
+@extends('layouts.app')
+
+
+@section('content')
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="diplay-4">Halaman Home</h1>
+            <p class="lead">Halaman ini merupakan halaman home</p>
+            <p>Nama : {{ $nama }}</p>
+            <p>Mata Pelajaran :</p>
+            <ul>
+                @foreach ( $pelajaran as $p)
+                <li>{{$p}}</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+@endsection
+
 {{-- @include('layout.header') --}}
-@extends('layout.app')
+{{-- @extends('layout.app')
 @section('content')
     <div class="w-[32rem] h-auto bg-purple-600/30 rounded-3xl shadow-2xl backdrop-blur-sm border border-purple-700/10 text-center p-12">
         <h1 class="font-bold text-5xl font-sans text-white mb-8">Halaman Home</h1>
@@ -19,7 +38,7 @@
             <button class="flex bg-purple-600 py-2 px-4 rounded-full mt-8 w-full justify-center hover:bg-purple-800 active:bg-purple-950"><p class="text-center text-white">Kirim</p></button>
         </form>
     </div>
-@endsection
+@endsection --}}
 
 {{-- <body>
     <div class="h-screen w-full flex justify-center items-center bg-[url('https://images.unsplash.com/photo-1658937364065-60f3f6818724?q=80&w=2093&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
@@ -38,3 +57,4 @@
     </div>
 </body>
 </html> --}}
+

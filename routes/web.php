@@ -27,3 +27,7 @@ Route::delete('/user/{id}', [ManagementUserController::class, 'destroy']);
 Route::get("/home",function(){
     return view("home");
 });
+
+Route::get("/acara7", function(){
+    return view("frontend/layout/home");
+});
