@@ -48,6 +48,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend'], function () {
     Route::resource('dashboard', 'DashboardController');
 });
 
-// Auth::routes();
+Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
