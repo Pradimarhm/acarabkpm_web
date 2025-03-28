@@ -10,7 +10,7 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -86,9 +86,9 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Components Nav -->
+      </li><!-- End Components Nav --> --}}
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -229,7 +229,26 @@
           <i class="bi bi-file-earmark"></i>
           <span>Blank</span>
         </a>
-      </li><!-- End Blank Page Nav -->
+      </li><!-- End Blank Page Nav --> --}}
+
+      <li>
+        <a href="index.html">
+            <i class="icon_profile"></i>
+            <span>Profile</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:;" class="">
+            <i class="icon_document_alt"></i>
+            <span>Riwayat Hidup</span>
+            <span class="menu-arrow arrow_carrot-right"></span>
+        </a>
+        <ul class="sub">
+            <li><a href="{{url('pendidikan')}}">Pendidikan</a></li>
+            <li><a href="{{url('pengalaman_kerja')}}">Pengalaman Kerja</a></li>
+        </ul>
+      </li>
 
     </ul>
 

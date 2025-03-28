@@ -82,11 +82,11 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-
+{{--
             <li class="notification-item">
               <i class="bi bi-exclamation-circle text-warning"></i>
               <div>
-                <h4>Lorem Ipsum</h4>
+                <h4>Ldorem Ipsum</h4>
                 <p>Quae dolorem earum veritatis oditseno</p>
                 <p>30 min. ago</p>
               </div>
@@ -94,15 +94,42 @@
 
             <li>
               <hr class="dropdown-divider">
-            </li>
+            </li> --}}
 
-            <li class="notification-item">
+
+
+            {{-- <li class="notification-item">
               <i class="bi bi-x-circle text-danger"></i>
               <div>
                 <h4>Atque rerum nesciunt</h4>
                 <p>Quae dolorem earum veritatis oditseno</p>
                 <p>1 hr. ago</p>
               </div>
+            </li> --}}
+
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="profile-ava">
+                        <img src="{{asset('backend/img/avatar1_small.jpg')}}" alt="">
+                    </span>
+                    {{-- <span class="username">{{Auth::user()->name}}</span> --}}
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu extended logout">
+                    <div class="log-arrow-up"></div>
+                    <li class="eborder-top">
+                        <a href="#"><i class="icon profile"></i> My Profile</a>
+                    </li>
+                    <li>
+                        {{-- <a class="dropdown-iten" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="icon key_alt"></i>{{__('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form> --}}
+                    </li>
+                    {{-- You, 16 days ago update backend layout --}}
+                </ul>
             </li>
 
             <li>
@@ -211,15 +238,59 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{asset('backend/assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            {{-- <img src="{{asset('backend/assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle"> --}}
+
+            <span class="profile-ava">
+                <img src="{{asset('backend/assets/img/profile-img.jpg')}}" class="rounded-circle" alt="">
+            </span>
+
+            {{-- <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span> --}}
+
+            @if(Auth::check())
+                <span class="username">{{ Auth::user()->name }}</span>
+            @else
+                <span class="username">Guest</span>
+            @endif
+
+            <b class="caret"></b>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
+
+            {{-- <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="profile-ava">
+                        <img src="{{asset('backend/img/avatar1_small.jpg')}}" alt="">
+                    </span>
+                    <span class="username">{{Auth::user()->name}}</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu extended logout">
+                    <div class="log-arrow-up"></div>
+                    <li class="eborder-top">
+                        <a href="#"><i class="icon profile"></i> My Profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-iten" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="icon key_alt"></i>{{__('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                    You, 16 days ago update backend layout
+                </ul>
+            </li> --}}
+
+            {{-- <li class="dropdown-header">
               <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
+              <span class="profile-ava">
+                <img src="{{asset('backend/assets/img/profile-img.jpg')}}" alt="">
+                </span>
+                <span class="username">{{Auth::user()->name}}</span>
+                <b class="caret"></b>
+            </li> --}}
+
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -234,7 +305,7 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li>
+            {{-- <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
@@ -252,7 +323,7 @@
             </li>
             <li>
               <hr class="dropdown-divider">
-            </li>
+            </li> --}}
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
@@ -271,7 +342,10 @@
 
   @include('backend.layouts.sidebar')
 
-  @yield('content')
+  {{-- @yield('content') --}}
+  <div id="footer" class="main">
+    @yield('content')
+  </div>
   <!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -299,6 +373,9 @@
   <script src="{{asset('backend/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
   <script src="{{asset('backend/assets/vendor/tinymce/tinymce.min.js')}}"></script>
   <script src="{{asset('backend/assets/vendor/php-email-form/validate.js')}}"></script>
+  {{-- <script src="{{asset('backend/js/jquery.slimscroll.min.js')}}"></script>
+    @stack('content-js') --}}
+
 
   <!-- Template Main JS File -->
   <script src="{{asset('backend/assets/js/main.js')}}"></script>
