@@ -343,13 +343,13 @@
   @include('backend.layouts.sidebar')
 
   {{-- @yield('content') --}}
-  <div id="footer" class="main">
+  <div id="sidebartransform" class="main">
     @yield('content')
   </div>
   <!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+  <footer id="sidebartransform" class="footer">
     <div class="copyright">
       &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
     </div>

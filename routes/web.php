@@ -5,16 +5,17 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Backend\ManagementUserController;
 use App\Http\Controllers\Backend\PengalamanKerjaController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\PendidikanController;
 use App\Http\Controllers\Frontend\HomeController;
 
 // Route untuk mengambil semua user
-Route::get('/user', [ManagementUserController::class, 'index']);
-Route::get('/user/create', [ManagementUserController::class, 'create']);
-Route::post('/user', [ManagementUserController::class, 'store']);
-Route::get('/user/{id}', [ManagementUserController::class, 'show']);
-Route::get('/user/{id}/edit', [ManagementUserController::class, 'edit']);
-Route::put('/user/{id}', [ManagementUserController::class, 'update']);
-Route::delete('/user/{id}', [ManagementUserController::class, 'destroy']);
+// Route::get('/user', [ManagementUserController::class, 'index']);
+// Route::get('/user/create', [ManagementUserController::class, 'create']);
+// Route::post('/user', [ManagementUserController::class, 'store']);
+// Route::get('/user/{id}', [ManagementUserController::class, 'show']);
+// Route::get('/user/{id}/edit', [ManagementUserController::class, 'edit']);
+// Route::put('/user/{id}', [ManagementUserController::class, 'update']);
+// Route::delete('/user/{id}', [ManagementUserController::class, 'destroy']);
 
 Route::get("/home", function() {
     return view("home");
@@ -37,4 +38,5 @@ Route::get('/logout', function () {
     return redirect('/login');
 })->name('logout');
 
-
+//pendidikan
+Route::resource('pendidikan', PendidikanController::class);

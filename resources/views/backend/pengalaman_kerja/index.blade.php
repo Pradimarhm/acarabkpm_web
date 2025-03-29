@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
 
 @section('content')
-    <section id="main-content" class="px-4" >
+    <section id="main-content" class="px-4">
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -22,7 +22,7 @@
                         <header class="panel-heading mb-4">
                             Pengalaman Kerja
                             <a href="{{ route('pengalaman_kerja.create') }}"><button class="ms-4 btn btn-primary"
-                                type="button"><i class="fa fa-plus"> Tambah</i></button></a>
+                                    type="button"><i class="fa fa-plus"> Tambah</i></button></a>
                         </header>
                         <div class="panel-body">
                             @if ($message = Session::get('success'))
@@ -48,11 +48,39 @@
                                             <td>{{ $item->tahun_keluar }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a class="btn btn-warning">
-                                                        <i class="bi bi-pencil-square"></i></a>
-                                                        <button type="submit" class="btn btn-danger">
-                                                            <i class="bi bi-x-square"></i></button>
+                                                    <a class="btn btn-warning"
+                                                        href="{{ route('pengalaman_kerja.edit', $item->id) }}">
+                                                        <i class="bi bi-pencil-square text-white"></i>
+                                                    </a>
+
+                                                    <form action="{{ route('pengalaman_kerja.destroy', $item->id) }}" method="POST" class="m-0">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn bg-danger rounded-start-0"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                                            <i class="bi bi-x-square text-white"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
+
+                                                {{-- <div class="d-flex gap-2">
+                                                    <!-- Tombol Edit -->
+                                                    <a class="btn btn-warning d-flex align-items-center justify-content-center"
+                                                        href="{{ route('pengalaman_kerja.edit', $item->id) }}" style="width: 45px; height: 45px;">
+                                                        <i class="bi bi-pencil-square"></i>
+                                                    </a>
+
+                                                    <!-- Form Delete -->
+                                                    <form action="{{ route('pengalaman_kerja.destroy', $item->id) }}" method="POST" class="d-flex m-0">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger d-flex align-items-center justify-content-center"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"
+                                                            style="width: 45px; height: 45px;">
+                                                            <i class="bi bi-x-square"></i>
+                                                        </button>
+                                                    </form>
+                                                </div> --}}
                                             </td>
                                         </tr>
                                     @endforeach
@@ -68,7 +96,7 @@
 @endsection
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const alertBox = document.getElementById('success-alert');
 
         if (alertBox) {
@@ -86,6 +114,4 @@
     });
 </script>
 
-<script src="{{asset('backend/assets/js/main.js')}}"></script>
-
-
+<script src="{{ asset('backend/assets/js/main.js') }}"></script>

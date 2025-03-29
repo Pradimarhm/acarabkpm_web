@@ -632,7 +632,7 @@ h6 {
 @media (min-width: 1200px) {
 
   #main,
-  #footer {
+  #sidebartransform {
     margin-left: 300px;
   }
 }
@@ -646,7 +646,7 @@ h6 {
 @media (min-width: 1200px) {
 
   .toggle-sidebar #main,
-  .toggle-sidebar #footer {
+  .toggle-sidebar #sidebartransform {
     margin-left: 0;
   }
 
