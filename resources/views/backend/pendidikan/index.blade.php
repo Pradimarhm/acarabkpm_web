@@ -22,7 +22,7 @@
                         </header>
                         <div class="panel-body">
                             @if (session()->get('success'))
-                                <div class="alert alert-success">
+                                <div class="alert alert-success" id="success-alert">
                                     <p>{{ session()->get('success') }}</p>
                                 </div>
                             @endif
@@ -95,3 +95,22 @@
         </section>
     </section>
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const alertBox = document.getElementById('success-alert');
+
+        if (alertBox) {
+            // Timer untuk menghilangkan notifikasi setelah 2 detik
+            setTimeout(() => {
+                alertBox.style.transition = "opacity 0.5s ease"; // Animasi fade out
+                alertBox.style.opacity = "0";
+
+                // Hapus dari DOM setelah animasi selesai (0.5s)
+                setTimeout(() => {
+                    alertBox.remove();
+                }, 500);
+            }, 5000); // 2 detik sebelum mulai fade out
+        }
+    });
+</script>
