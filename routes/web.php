@@ -7,6 +7,8 @@ use App\Http\Controllers\Backend\PengalamanKerjaController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PendidikanController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\PegawaiController;
 
 // Route untuk mengambil semua user
 // Route::get('/user', [ManagementUserController::class, 'index']);
@@ -40,3 +42,16 @@ Route::get('/logout', function () {
 
 //pendidikan
 Route::resource('pendidikan', PendidikanController::class);
+
+//session
+Route::get('/session/create', [SessionController::class, 'create']);
+
+Route::get('/session/show', [SessionController::class, 'show']);
+
+Route::get('/session/delete', [SessionController::class, 'delete']);
+
+Route::get('/pegawai/{nama}', [PegawaiController::class, 'index']);
+
+Route::get('/formulir', [PegawaiController::class, 'formulir']);
+
+Route::post('/formulir/proses', [PegawaiController::class, 'proses']);
