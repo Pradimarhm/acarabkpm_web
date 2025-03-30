@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\CobaController;
+use App\Http\Controllers\UploadController;
 
 // Route untuk mengambil semua user
 // Route::get('/user', [ManagementUserController::class, 'index']);
@@ -60,3 +61,10 @@ Route::post('/formulir/proses', [PegawaiController::class, 'proses']);
 Route::get('/cobaerror',[CobaController::class, 'index']);
 
 Route::get('/cobaerror/{nama}',[CobaController::class, 'index']);
+
+//upload file dan gambar
+Route::get('/upload',[UploadController::class, 'upload'])->name('upload');
+Route::post('/upload/proses',[UploadController::class, 'proses_upload'])->name('upload.proses');
+
+//rezise image
+Route::post('/upload/resize', [UploadController::class, 'resize_upload'])->name('upload.resize');
