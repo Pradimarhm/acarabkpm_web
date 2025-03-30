@@ -21,7 +21,7 @@ use App\Http\Controllers\UploadController;
 // Route::put('/user/{id}', [ManagementUserController::class, 'update']);
 // Route::delete('/user/{id}', [ManagementUserController::class, 'destroy']);
 
-Route::get("/home", function() {
+Route::get("/home", function () {
     return view("home");
 });
 
@@ -58,13 +58,25 @@ Route::get('/formulir', [PegawaiController::class, 'formulir']);
 
 Route::post('/formulir/proses', [PegawaiController::class, 'proses']);
 
-Route::get('/cobaerror',[CobaController::class, 'index']);
+Route::get('/cobaerror', [CobaController::class, 'index']);
 
-Route::get('/cobaerror/{nama}',[CobaController::class, 'index']);
+Route::get('/cobaerror/{nama}', [CobaController::class, 'index']);
 
 //upload file dan gambar
-Route::get('/upload',[UploadController::class, 'upload'])->name('upload');
-Route::post('/upload/proses',[UploadController::class, 'proses_upload'])->name('upload.proses');
+Route::get('/upload', [UploadController::class, 'upload'])->name('upload');
+Route::post('/upload/proses', [UploadController::class, 'proses_upload'])->name('upload.proses');
 
 //rezise image
 Route::post('/upload/resize', [UploadController::class, 'resize_upload'])->name('upload.resize');
+
+//dropdzone
+Route::get('/dropzone', [UploadController::class, 'dropzone'])
+    ->name('dropzone');
+Route::post('/dropzone/store', [UploadController::class, 'dropzone_store'])
+    ->name('dropzone.store');
+
+//pdf
+Route::get('/pdf_upload', [UploadController::class, 'pdf_upload'])
+    ->name('pdf.upload');
+Route::post('/pdf/store', [UploadController::class, 'pdf_store'])
+    ->name('pdf.store');
