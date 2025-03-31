@@ -17,6 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('api_pendidikan', [ApiPendidikanController::class, 'getAll']);
 Route::get('api_pendidikan/{id}', [ApiPendidikanController::class, 'getPen']);
 Route::post('api_pendidikan', [ApiPendidikanController::class, 'createPen']);
-Route::put('api_pendidikan/{id}', [ApiPendidikanController::class, 'pdatePen']);
+Route::put('api_pendidikan/{id}', [ApiPendidikanController::class, 'updatePen']);
 Route::delete('api_pendidikan/{id}', [ApiPendidikanController::class, 'deletePen']);
 // });
